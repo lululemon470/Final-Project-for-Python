@@ -1,0 +1,50 @@
+{% extends 'ecadmin/blank_base.html' %}
+{% load static %}
+
+{% block content %}
+ <main class="d-flex w-100">
+        <div class="container d-flex flex-column">
+            <div class="row vh-100">
+                <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                    <div class="d-table-cell align-middle">
+                        <div class="text-center mt-4">
+                            <h1 class="h2">Welcome back!</h1>
+                            <p class="lead">Sign in to your account to continue</p>
+                        </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="m-sm-4">
+                                <form method="post" action="{% url 'ecadmin:register' %}">
+                                    {% csrf_token %}
+                                    <!-- Username Field -->
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input id="username" class="form-control form-control-lg" type="text" name="username" placeholder="Enter your username" required />
+                                    </div>
+                                    <!-- Password Field -->
+                                    <div class="mb-3">
+                                        <label for="password1" class="form-label">Password</label>
+                                        <input id="password1" class="form-control form-control-lg" type="password" name="password1" placeholder="Enter password" required />
+                                    </div>
+
+                                    <!-- Password Confirmation Field -->
+                                    <div class="mb-3">
+                                        <label for="password2" class="form-label">Confirm Password</label>
+                                        <input id="password2" class="form-control form-control-lg" type="password" name="password2" placeholder="Confirm password" required />
+                                    </div>
+
+                                    <div class="text-center mt-3">
+                                        <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load static %}
+<nav class="sidebar js-sidebar" id="sidebar">
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" href="index.html">
+            <span class="align-middle">AdminKit</span>
+        </a>
+
+        <ul class="sidebar-nav">
+            <li class="sidebar-item {% if request.path == '/ecadmin/' %}active{% endif %}">
+                <a class="sidebar-link" href="{% url 'ecadmin:home' %}">
+                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                </a>
+            </li>
+
+		  	<li class="sidebar-item {% if request.path == '/ecadmin/slideshow/' %}active{% endif %}">
+                <a class="sidebar-link" href="{% url 'ecadmin:slideshow' %}">
+                    <i class="align-middle" data-feather="airplay"></i> <span class="align-middle">Slideshow</span>
+                </a>
+            </li>
+
+			<li class="sidebar-item {% if request.path == '/ecadmin/product/' %}active{% endif %}">
+                <a class="sidebar-link" href="{% url 'ecadmin:product-list' %}">
+                    <i class="align-middle" data-feather="box"></i> <span class="align-middle">Product</span>
+                </a>
+            </li>
+
+			<li class="sidebar-item {% if request.path == '/ecadmin/category/' %}active{% endif %}">
+                <a class="sidebar-link" href="{% url 'ecadmin:category-list' %}">
+                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Category</span>
+                </a>
+            </li>
+
+				<li class="sidebar-item {% if request.path == '/ecadmin/slideshow/' %}page{% endif %}">
+                <a class="sidebar-link" href="">
+                    <i class="align-middle" data-feather="file"></i> <span class="align-middle">Page</span>
+                </a>
+            </li>
+
+			<li class="sidebar-item {% if request.path == '/ecadmin/users/' %}active{% endif %}">
+                <a class="sidebar-link" href="">
+                    <i class="align-middle" data-feather="users"></i> <span class="align-middle">Users</span>
+                </a>
+            </li>
+
+			<li class="sidebar-item {% if request.path == '/ecadmin/settings/' %}active{% endif %}">
+                <a class="sidebar-link" href="index.html">
+                    <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
+                </a>
+            </li>
+        </ul>
+
+
+    </div>
+</nav>

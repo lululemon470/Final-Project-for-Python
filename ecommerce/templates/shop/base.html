@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include "shop/includes/head.html" %}
+<body>
+	{% include "shop/includes/header.html" %}
+
+	{% if slider %}
+		{% include "shop/includes/slider.html" %}
+	{% endif %}
+
+	<section>
+		<div class="container">
+			<div class="row">
+				{% if aside %}
+					{% include "shop/includes/aside.html" %}
+				{% endif %}
+
+				{% block content %}
+
+				{% endblock %}
+			</div>
+		</div>
+	</section>
+	
+	{% include "shop/includes/footer.html" %}
+</body>
+</html>

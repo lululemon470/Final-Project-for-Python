@@ -1,0 +1,26 @@
+{% extends "ecadmin/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid p-0">
+		<h1 class="h3 mb-3"><strong>Add new product</strong></h1>
+		 <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <!-- /.card-header -->
+              	<div class="card-body">
+                    <p>Are u sure you want to delete item "{{item.product_name}}" ?</p>
+                     <form method="post" action="{% url 'ecadmin:product-delete' item.id %}">
+                            {% csrf_token %}
+                         <div class="col-3 form-group">
+                             <button class="btn btn-primary"
+                                    type="submit">Delete
+                            </button>
+                         </div>
+                    </form>
+              	</div>
+            </div>
+          </div>
+        </div>
+	</div>
+
+{% endblock %}

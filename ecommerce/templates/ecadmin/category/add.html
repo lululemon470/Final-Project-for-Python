@@ -1,0 +1,26 @@
+{% extends "ecadmin/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid p-0">
+		<h1 class="h3 mb-3"><strong>Add new category</strong></h1>
+		 <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <!-- /.card-header -->
+              	<div class="card-body">
+                     <form method="post" action="{% url 'ecadmin:category-post' %}">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                         <div class="col-3 form-group">
+                             <button class="btn btn-primary"
+                                    type="submit">Add
+                            </button>
+                         </div>
+                    </form>
+              	</div>
+            </div>
+          </div>
+        </div>
+	</div>
+
+{% endblock %}

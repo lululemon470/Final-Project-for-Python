@@ -1,0 +1,91 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block content %}
+	<section id="advertisement">
+		<div class="container">
+			<img src="{% static 'shop/images/shop/advertisement.jpg' %}" alt="" />
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Category</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							{% for item in category %}
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">{{item.category_name}}</a></h4>
+								</div>
+							</div>
+							{% endfor %}
+						</div><!--/category-productsr-->
+					
+
+						
+						<div class="price-range"><!--price-range-->
+							<h2>Price Range</h2>
+							<div class="well">
+								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+								 <b>$ 0</b> <b class="pull-right">$ 600</b>
+							</div>
+						</div><!--/price-range-->
+						
+						<div class="shipping text-center"><!--shipping-->
+							<img src="{% static 'shop/images/home/shipping.jpg' %}" alt="" />
+						</div><!--/shipping-->
+						
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Features Items</h2>
+						{% for product in page_obj %}
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											{% if product.image %}
+												<img src="{{ product.image.url }}" width="300" height="300" style="object-fit: cover">
+											{% else %}
+												<img src="/media/images/shop/product/No_Image_Available.jpg" width="300" height="300" style="object-fit: cover">
+											{% endif %}
+											<h2>${{ product.price }}</h2>
+											<p>{{ product.product_name }}</p>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+
+					</div><!--features_items-->
+					<div class="pagination-container text-center">
+							<ul class="pagination">
+								{% if page_obj.has_previous %}
+									<li><a href="?page=1">&laquo; First</a></li>
+									<li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+								{% endif %}
+
+								{% for num in page_obj.paginator.page_range %}
+									{% if page_obj.number == num %}
+										<li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+									{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+										<li><a href="?page={{ num }}">{{ num }}</a></li>
+									{% endif %}
+								{% endfor %}
+
+								{% if page_obj.has_next %}
+									<li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+									<li><a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+								{% endif %}
+							</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
