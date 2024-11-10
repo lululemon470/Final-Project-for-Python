@@ -23,5 +23,6 @@ app_name = 'ecommerce'
 urlpatterns = [
     path('', views.home, name="home"),
     path('shop', views.shop, name="shop"),
+    path('shop/<str:category_name>/', views.shop_category, name="shop-category"),
     path('contact', views.contact, name="contact")
 ]

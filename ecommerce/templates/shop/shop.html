@@ -9,7 +9,7 @@
 
 	<section>
 		<div class="container">
-			<div class="row">
+			<div class="row m-5">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
 						<h2>Category</h2>
@@ -17,7 +17,9 @@
 							{% for item in category %}
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">{{item.category_name}}</a></h4>
+									<h4 class="panel-title">
+										<a href='{% url "ecommerce:shop-category" item.category_name %}'>{{item.category_name}}</a>
+									</h4>
 								</div>
 							</div>
 							{% endfor %}
